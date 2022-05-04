@@ -26,10 +26,11 @@ function generatePassword() {
 
 //displays generated passwords on page
 function displayPasswords() {
-    document.getElementById("pw-1").innerHTML = generatePassword()
-    document.getElementById("pw-2").innerHTML = generatePassword()
-    document.getElementById("pw-3").innerHTML = generatePassword()
-    document.getElementById("pw-4").innerHTML = generatePassword()
+    const elements = ["pw-1", "pw-3", "pw-3", "pw-4"]
+
+    elements.forEach((id) => {
+        document.getElementById(id).innerHTML = generatePassword()
+    })
 
     // passWord1.textContent = "Poop"
     // passWord2.textContent = "Fart"

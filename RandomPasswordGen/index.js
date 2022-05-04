@@ -15,31 +15,22 @@ function getRandom() {
 
 //generates individual passwords
 function generatePassword() {
-    // console.log(bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()])    
+    let value = []
+    for (var count=1; count<=9; count++) {
+        value.push(bank[getRandom()])
+    }
 
-    return [bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()], bank[getRandom()]]
+    return value.join("")
 }
-
-//this is really hacky. there's a better way to run the function 9 different times without writing it 9 times.
 
 
 //displays generated passwords on page
 function displayPasswords() {
-    let generatedPWcommas = generatePassword()
-    let generatedPW = generatedPWcommas.join("")
-    let generatedPWcommas2 = generatePassword()
-    let generatedPW2 = generatedPWcommas2.join("")
-    let generatedPWcommas3 = generatePassword()
-    let generatedPW3 = generatedPWcommas3.join("")
-    let generatedPWcommas4 = generatePassword()
-    let generatedPW4 = generatedPWcommas4.join("")
+    const elements = ["pw-1", "pw-3", "pw-3", "pw-4"]
 
-    document.getElementById("pw-1").innerHTML = generatedPW
-    document.getElementById("pw-2").innerHTML = generatedPW2
-    document.getElementById("pw-3").innerHTML = generatedPW3
-    document.getElementById("pw-4").innerHTML = generatedPW4
-
-    //this is really hacky. there's a better way to run the function 4 different times without writing it 4 times.
+    elements.forEach((id) => {
+        document.getElementById(id).innerHTML = generatePassword()
+    })
 
     // passWord1.textContent = "Poop"
     // passWord2.textContent = "Fart"
